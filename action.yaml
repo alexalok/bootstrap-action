@@ -39,10 +39,6 @@ runs:
         username: ${{ inputs.registry-login }}
         password: ${{ inputs.registry-password }}
 
-    - name: Start MySQL
-      shell: bash
-      run: sudo systemctl start mysql.service
-
                     
           
 
