@@ -16,6 +16,10 @@ inputs:
   server-ssh-key: 
     description: 'Server SSH key'
     required: true
+  start-mysql:
+    description: 'Whether MySQL should be started (default: false)'
+    required: false
+    default: 'false'
 
 runs:
   using: composite
@@ -38,6 +42,11 @@ runs:
         registry: ${{ inputs.registry-host }}
         username: ${{ inputs.registry-login }}
         password: ${{ inputs.registry-password }}
+
+    - name: Start MySQL
+      if: inputs.start-mysql == 'true' || inputs.start-mysql == '1'
+      shell: bash
+      run: sudo systemctl start mysql.service
 
                     
           
