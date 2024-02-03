@@ -6,7 +6,8 @@ inputs:
     required: true
   registry-host:
     description: 'Registry domain'
-    required: true
+    required: false
+    default: '' # https://github.com/docker/login-action?tab=readme-ov-file#docker-hub
   registry-login:
     description: 'Registry username'
     required: true
